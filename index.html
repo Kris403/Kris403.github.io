@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safe Sleep & Rooming-In Flash Cards</title>
+
+<style>
+:root{
+    --primary:#0a4f8f;
+    --primary-dark:#083d6d;
+    --background:#f4f7fb;
+    --card:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    font-family:Segoe UI, Arial, Helvetica, sans-serif;
+    background:var(--background);
+    color:#222;
+    line-height:1.5;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:var(--primary);
+    margin-bottom:5px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.instructions{
+    text-align:center;
+    margin-bottom:25px;
+    color:#555;
+}
+
+.print-btn{
+    display:block;
+    margin:15px auto 25px;
+    padding:12px 20px;
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.print-btn:hover{
+    background:var(--primary-dark);
+}
+
+.deck{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:20px;
+}
+
+.card{
+    height:320px;
+    perspective:1000px;
+}
+
+.card-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .8s;
+    transform-style:preserve-3d;
+    cursor:pointer;
+}
+
+.card.flipped .card-inner{
+    transform:rotateY(180deg);
+}
+
+.card-front,
+.card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    backface-visibility:hidden;
+    overflow-y:auto;
+}
+
+.card-front{
+    background:var(--card);
+    color:var(--primary);
+    font-size:1.35rem;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.card-back{
+    background:var(--primary);
+    color:white;
+    transform:rotateY(180deg);
+}
+
+.card-back h3{
+    margin-top:0;
+}
+
+ul{
+    padding-left:20px;
+}
+
+.small{
+    font-size:.95rem;
+}
+
+.footer{
+    margin-top:30px;
+    text-align:center;
+    color:#666;
+    font-size:.9rem;
+}
+
+@media(max-width:768px){
+
+    .deck{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        height:340px;
+    }
+
+    .card-front{
+        font-size:1.2rem;
+    }
+}
+
+@media print{
+
+    body{
+        background:white;
+        padding:0;
+    }
+
+    .print-btn,
+    .instructions,
+    .footer{
+        display:none;
+    }
+
+    .deck{
+        display:block;
+    }
+
+    .card{
+        height:auto;
+        perspective:none;
+        page-break-after:always;
+    }
+
+    .card-inner{
+        transform:none !important;
+    }
+
+    .card-front,
+    .card-back{
+        position:relative;
+        transform:none !important;
+        display:block;
+        height:auto;
+        color:black;
+        background:white;
+        border:2px solid #000;
+        box-shadow:none;
+        min-height:250px;
+        margin-bottom:20px;
+    }
+
+    .card-front::before{
+        content:"FRONT";
+        display:block;
+        margin-bottom:15px;
+        font-weight:bold;
+        color:var(--primary);
+    }
+
+    .card-back::before{
+        content:"BACK";
+        display:block;
+        margin-bottom:15px;
+        font-weight:bold;
+        color:var(--primary);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Safe Sleep & Rooming-In Review Cards</h1>
+
+<div class="subtitle">
+Postpartum Nursing Education • Safe Sleep • Rooming-In • Breastfeeding Support
+</div>
+
+<button onclick="window.print()" class="print-btn">
+Print Cards
+</button>
+
+<div class="instructions">
+Tap or click a card to flip it.
+</div>
+
+<div class="deck">
+
+<!-- CARD 1 -->
+<div class="card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+<div class="card-front">
+Why should nurses teach safe sleep during the birth hospitalization?
+</div>
+<div class="card-back">
+<h3>Answer</h3>
+The hospital stay is the ideal time to:
+<ul>
+<li>Model safe sleep behaviors</li>
+<li>Teach SIDS/SUID prevention</li>
+<li>Help families create a safe sleep environment before discharge</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+<div class="card-front">
+What are the key safety points for skin-to-skin care?
+</div>
+<div class="card-back">
+<h3>Answer</h3>
+<ul>
+<li>Place baby upright on the parent's chest</li>
+<li>Keep the infant's face visible at all times</li>
+<li>Keep the nose and mouth uncovered</li>
+<li>Avoid slouching or sleeping while holding baby</li>
+<li>Transfer baby to the bassinet if the parent becomes sleepy</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+<div class="card-front">
+What should parents know about room sharing?
+</div>
+<div class="card-back">
+<h3>Answer</h3>
+<ul>
+<li>Room sharing is recommended for at least the first 6 months</li>
+<li>Baby should sleep in their own bassinet, crib, or play yard</li>
+<li>Use a firm, flat sleep surface</li>
+<li>Avoid bed-sharing, couches, and recliners for infant sleep</li>
+<li>Room sharing supports feeding while maintaining a safe sleep environment</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+<div class="card-front">
+Why is rooming-in important?
+</div>
+<div class="card-back">
+<h3>Answer</h3>
+Rooming-in helps mothers:
+<ul>
+<li>Recognize feeding cues</li>
+<li>Respond quickly to infant needs</li>
+<li>Practice responsive feeding</li>
+<li>Improve breastfeeding success</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- CARD 5 -->
+<div class="card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+<div class="card-front">
+PACER Acronym
+</div>
+<div class="card-back">
+<h3>PACER</h3>
+
+<p><strong>P</strong> = Pacifier at naps and bedtime can reduce SIDS risk</p>
+
+<p><strong>A</strong> = Avoid early pacifier introduction before breastfeeding is established</p>
+
+<p><strong>C</strong> = Check breastfeeding success signs</p>
+
+<ul>
+<li>Audible swallowing</li>
+<li>Weight gain</li>
+<li>Adequate wet and dirty diapers</li>
+<li>8-12 feedings per day</li>
+</ul>
+
+<p><strong>E</strong> = Established breastfeeding typically occurs around 3-4 weeks postpartum</p>
+
+<p><strong>R</strong> = Reduce SIDS risk with:</p>
+
+<ul>
+<li>Breastfeeding</li>
+<li>Safe sleep practices</li>
+<li>Pacifier use after breastfeeding is established</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+<!-- CARD 6 -->
+<div class="card" onclick="this.classList.toggle('flipped')">
+<div class="card-inner">
+<div class="card-front">
+30-Second Nurse Teaching Script
+</div>
+<div class="card-back small">
+“Breastfeeding lowers the risk of SIDS, and pacifier use during sleep may also reduce SIDS risk. To protect milk supply, we recommend waiting until breastfeeding is well established, usually around 3-4 weeks. Signs breastfeeding is established include good weight gain, swallowing during feeds, frequent wet diapers, and feeding 8-12 times each day.”
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="footer">
+Safe Sleep & Rooming-In Educational Review Cards
+</div>
+
+</div>
+
+</body>
+</html>
